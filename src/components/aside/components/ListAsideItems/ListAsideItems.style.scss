@@ -1,0 +1,14 @@
+.aside-item {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 15px;
+    gap: 15px;
+    font-size: 0.9rem;
+    
+}
+
+.active{
+    background-color: rgba(white, 0.3);
+}
+

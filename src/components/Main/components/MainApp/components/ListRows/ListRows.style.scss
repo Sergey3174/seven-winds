@@ -1,0 +1,14 @@
+.list-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.line{
+    position: absolute;
+    border-left: #8b8b8d solid 1px ;
+    top: -13px;
+    height: calc(100% - 10px);
+    left: left - 6px;
+   
+}
