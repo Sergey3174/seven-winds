@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type initialStateType = {
   isEditing: boolean;
@@ -14,10 +14,10 @@ export const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    changeIsEditing(state, actions) {
+    changeIsEditing(state, actions: PayloadAction<boolean>) {
       state.isEditing = actions.payload;
     },
-    onHoverChange(state, actions) {
+    onHoverChange(state, actions: PayloadAction<boolean>) {
       state.onHover = actions.payload;
     },
     updateAsset() {},

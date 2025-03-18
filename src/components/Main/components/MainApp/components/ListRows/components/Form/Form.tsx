@@ -1,41 +1,49 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { changeIsEditing } from "../../../../../../../../store/appSlice";
+import { Node } from "../../../../../../../../store/store.types";
 
-export default function Form({ formValue, setFormValue }) {
-	const dispatch = useDispatch();
-	const { rowName, salary, equipmentCosts, overheads, estimatedProfit } =
-		formValue;
+interface FormTypes {
+  formValue: Node;
+  setFormValue: React.Dispatch<React.SetStateAction<Node>>;
+}
 
-	useEffect(() => {
-		dispatch(changeIsEditing(true));
+export default function Form({ formValue, setFormValue }: FormTypes) {
+  const dispatch = useDispatch();
+  const { rowName, salary, equipmentCosts, overheads, estimatedProfit } =
+    formValue;
 
-		return () => dispatch(changeIsEditing(false));
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(changeIsEditing(true));
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormValue((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
+    return () => {
+      dispatch(changeIsEditing(false));
+    };
+  }, [dispatch]);
 
-	return (
-		<>
-			<input name="rowName" value={rowName} onChange={handleChange} />
-			<input name="salary" value={salary} onChange={handleChange} />
-			<input
-				name="equipmentCosts"
-				value={equipmentCosts}
-				onChange={handleChange}
-			/>
-			<input name="overheads" value={overheads} onChange={handleChange} />
-			<input
-				name="estimatedProfit"
-				value={estimatedProfit}
-				onChange={handleChange}
-			/>
-		</>
-	);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  return (
+    <>
+      <input name="rowName" value={rowName} onChange={handleChange} />
+      <input name="salary" value={salary} onChange={handleChange} />
+      <input
+        name="equipmentCosts"
+        value={equipmentCosts}
+        onChange={handleChange}
+      />
+      <input name="overheads" value={overheads} onChange={handleChange} />
+      <input
+        name="estimatedProfit"
+        value={estimatedProfit}
+        onChange={handleChange}
+      />
+    </>
+  );
 }

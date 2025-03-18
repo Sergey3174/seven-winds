@@ -1,1 +1,1 @@
-export const ID = 150707;
+export const ID: number = 150707;

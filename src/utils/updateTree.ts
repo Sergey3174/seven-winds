@@ -1,3 +1,5 @@
+import { Node } from "../store/store.types";
+
 export const updateTree = (nodes: Node[], changed: Node[]): Node[] => {
 	return nodes.map((node) => {
 		let newNode = { ...node };
