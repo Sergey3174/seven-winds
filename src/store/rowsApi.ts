@@ -15,7 +15,7 @@ import {
 export const rowsApi = createApi({
   reducerPath: "rowsApi",
   tagTypes: ["Rows"],
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_PROXY }),
 
   endpoints: (build) => ({
     getRows: build.query<Node[], void>({
