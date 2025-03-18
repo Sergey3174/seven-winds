@@ -1,9 +1,7 @@
 export default async function handler(req, res) {
   const backendUrl = import.meta.env.VITE_URL;
-  const targetUrl =
-    backendUrl +
-    req.url.replace("https://seven-winds-hja8.vercel.app/api/proxy/", "");
-  console.log(targetUrl);
+  const targetUrl = backendUrl + req.url.replace("/api/proxy", "");
+  console.log("Target URL:", targetUrl);
   try {
     const response = await fetch(targetUrl, {
       method: req.method,
