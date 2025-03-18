@@ -14,7 +14,12 @@ export default async function handler(req, res) {
       body: req.method !== "GET" ? JSON.stringify(req.body) : undefined,
     });
 
-    res.status.send(response);
+    if (response.ok) {
+      const data = await response.json(); // Получаем данные как JSON
+      res.status(response.status).json(data); // Отправляем на фронтенд
+    } else {
+      res.status(response.status).send(await response.text()); // Если не JSON, отправляем текст
+    }
   } catch (error) {
     res.status(500).json({ error: "Ошибка при запросе к бэкенду" });
   }
