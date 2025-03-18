@@ -2,7 +2,7 @@
 	"rewrites": [
 	  {
 		"source": "/api/proxy/:path*",
-		"destination": "/api/proxy"
+		 "destination": "http://185.244.172.108:8081/:path*"
 	  }
 	]
   }
