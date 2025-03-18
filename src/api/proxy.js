@@ -13,10 +13,10 @@ export default async function handler(req, res) {
     });
 
     if (response.ok) {
-      const data = await response.json(); // Получаем данные как JSON
-      res.status(response.status).json(data); // Отправляем на фронтенд
+      const data = await response.json();
+      res.status(response.status).json(data);
     } else {
-      res.status(response.status).send(await response.text()); // Если не JSON, отправляем текст
+      res.status(response.status).send(await response.text());
     }
   } catch (error) {
     res.status(500).json({ error: "Ошибка при запросе к бэкенду" });
