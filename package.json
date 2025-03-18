@@ -2,7 +2,6 @@
   "name": "seven-winds",
   "private": true,
   "version": "0.0.0",
-  "homepage": "http://sergey3174.github.io/test-portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
